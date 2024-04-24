@@ -1,0 +1,25 @@
+﻿@model IEnumerable<TicketSystem.data.Models.Ticket>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title">ASP.NET</h1>
+        <div>
+            There are @Model.Count() number of tickets in the queue
+        </div>
+        <ul>
+            @foreach (var ticket in Model)
+            {
+                if (ticket.IsSolved==false)
+                {
+                    <li>"Test"</li>
+                <li>@ticket.CreatedAt, @ticket.Description</li>
+                }
+            }
+
+        </ul>
+    </section>
+
+</main>
