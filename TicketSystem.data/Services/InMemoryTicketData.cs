@@ -21,7 +21,7 @@ namespace TicketSystem.data.Services
                 tickets.Add(ticket);
                 ticket.IsSolved = false;
                 ticket.CreatedAt = DateTime.Now;
-                ticket.Id = tickets.Max(t => t.Id) + 1;
+                ticket.Id = tickets.Max(t => t.Id) + 1;//temporary solution to finding ID. 
         }
         public void Update(Ticket ticket)
         {

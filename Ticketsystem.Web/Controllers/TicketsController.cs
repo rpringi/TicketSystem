@@ -42,6 +42,7 @@ namespace Ticketsystem.Web.Controllers
         {
             if (ticket.Deadline.Date < DateTime.Now.Date)
             {
+                //Validation to adding a date
                 ModelState.AddModelError(nameof(ticket.Deadline), "Deadline must not be in the past");
             }
                 if (ModelState.IsValid)
