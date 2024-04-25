@@ -40,8 +40,11 @@ namespace Ticketsystem.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Ticket ticket)
         {
-
-            if (ModelState.IsValid)
+            if (ticket.Deadline.Date < DateTime.Now.Date)
+            {
+                ModelState.AddModelError(nameof(ticket.Deadline), "Deadline must not be in the past");
+            }
+                if (ModelState.IsValid)
             {
                 db.Add(ticket);
                 return RedirectToAction("Details",new {id=ticket.Id});

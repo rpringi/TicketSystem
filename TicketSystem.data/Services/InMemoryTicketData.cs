@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Web.ModelBinding;
 using TicketSystem.data.Models;
 
 namespace TicketSystem.data.Services
@@ -11,18 +12,16 @@ namespace TicketSystem.data.Services
         List<Ticket> tickets;
         public InMemoryTicketData()
         {
-            tickets = new List<Ticket>()
-                {
-            new Ticket() { Id=1,Description="ticket1",CreatedAt= DateTime.Now,Deadline=new DateTime(),IsSolved=false}
-                };
+            tickets = new List<Ticket>();
+                
         }
 
         public void Add(Ticket ticket)
         {
-            tickets.Add(ticket);
-            ticket.IsSolved = false;
-            ticket.CreatedAt = DateTime.Now;
-            ticket.Id = tickets.Max(t => t.Id)+1;
+                tickets.Add(ticket);
+                ticket.IsSolved = false;
+                ticket.CreatedAt = DateTime.Now;
+                ticket.Id = tickets.Max(t => t.Id) + 1;
         }
         public void Update(Ticket ticket)
         {

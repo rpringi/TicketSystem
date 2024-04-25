@@ -24,7 +24,7 @@
 
     @foreach (var item in Model)
     {
-        if (item.IsSolved == false && item.Deadline.Subtract(DateTime.Now).TotalMinutes < 60)
+        if (item.IsSolved == false)
         {
             <tr style="color:darkred;font-weight:bold;">
                 <td>
